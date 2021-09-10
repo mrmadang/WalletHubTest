@@ -28,7 +28,7 @@ public class ExtentReporter extends DriverSetup
  
  public void SetExtent()
  {
-	 HtmlReporter=new ExtentHtmlReporter(System.getProperty("user.dir")+"/test-output/myReport.html");
+	 HtmlReporter=new ExtentHtmlReporter(System.getProperty("user.dir")+"/test-output/AutomationReport.html");
 	 HtmlReporter.config().setDocumentTitle("Automation Report");
 	 HtmlReporter.config().setReportName("Commons Automation");
 	 HtmlReporter.config().setTheme(Theme.DARK);
@@ -46,8 +46,8 @@ public class ExtentReporter extends DriverSetup
  {
 	 if(result.getStatus()==ITestResult.FAILURE)
 	 {
-		 Test.log(Status.FAIL, "Test Case failed is"+result.getName());
-		 Test.log(Status.FAIL, "Test Case failed is"+result.getThrowable());
+		 Test.log(Status.FAIL, "Test Case failed is : "+result.getName());
+		 Test.log(Status.FAIL, "Test Case failed is : "+result.getThrowable());
 		 
 		 String MethodName=result.getMethod().getMethodName();
 		 String logText="<b>"+"TEST CASE"+MethodName.toUpperCase()+" FAILED"+"</b>";
@@ -66,13 +66,13 @@ public class ExtentReporter extends DriverSetup
 	 {
 		 Test.log(Status.SKIP , "Test case skip is "+result.getName());
 		 String MethodName=result.getMethod().getMethodName();
-		 String logText="<b>"+"TEST CASE"+MethodName.toUpperCase()+" SKIPPED"+"</b>";
+		 String logText="<b>"+"TEST CASE: "+MethodName.toUpperCase()+" SKIPPED"+"</b>";
 		 Markup markUpHelper=MarkupHelper.createLabel(logText, ExtentColor.YELLOW);
 	 }
 	 else if(result.getStatus()==ITestResult.SUCCESS)
 	 {
 		 String MethodName=result.getMethod().getMethodName();
-		 String logText="<b>"+"TEST CASE"+MethodName.toUpperCase()+" PASSED"+"</b>";
+		 String logText="<b>"+"TEST CASE : "+MethodName.toUpperCase()+" PASSED"+"</b>";
 		 Markup markUpHelper=MarkupHelper.createLabel(logText, ExtentColor.GREEN);
 		 Test.pass(markUpHelper);
 	 }

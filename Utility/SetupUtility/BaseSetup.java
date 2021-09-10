@@ -15,18 +15,17 @@ public class BaseSetup extends ExtentReporter
 	public DriverSetup DriverSetup;
 	public Properties prop;
 	
-	@BeforeTest
-	public void Setup()
-	{
-		DriverSetup=new DriverSetup();
+//	@BeforeTest
+//	public void Setup()
+//	{
+//		DriverSetup=new DriverSetup();
 //		prop = DriverSetup.init_prop("qa1");
-		prop = DriverSetup.init_prop("qa1");
-		Webdriver=DriverSetup.init_driver(prop);
-		Webdriver.manage().timeouts().pageLoadTimeout(40, TimeUnit.SECONDS);
-		Webdriver.manage().timeouts().setScriptTimeout(40, TimeUnit.SECONDS);
-		SetExtent();
-		
-	}
+//		Webdriver=DriverSetup.init_driver(prop);
+//		Webdriver.manage().timeouts().pageLoadTimeout(40, TimeUnit.SECONDS);
+//		Webdriver.manage().timeouts().setScriptTimeout(40, TimeUnit.SECONDS);
+//		SetExtent();
+//		
+//	}
 	
 	@AfterTest
 	public void EndTest()

@@ -19,7 +19,6 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.safari.SafariDriver;
 import io.github.bonigarcia.wdm.WebDriverManager;
-import CommonsUtility.OptionsManager;
 
 public class DriverSetup
 {
@@ -135,6 +134,7 @@ public class DriverSetup
 					configFile = new FileInputStream("./Config/qa1.config.properties");
 					break;
 				case "qa2":
+					//configFile = new FileInputStream("./src/test/resources/Config/qa1.config.properties");
 					configFile = new FileInputStream("./Config/qa2.config.properties");
 					break;
 				case "uat":
@@ -160,7 +160,7 @@ public class DriverSetup
 	// take screenshot:
 	public String getScreenshot() {
 		File src = ((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.FILE);
-		String path = System.getProperty("user.dir") + "/screenshots/" + System.currentTimeMillis() + ".png";
+		String path = System.getProperty("user.dir") + "/FailureScreenshot/" + System.currentTimeMillis() + ".png";
 		File destination = new File(path);
 		try {
 			FileUtils.copyFile(src, destination);
