@@ -2,8 +2,8 @@ package SetupUtility;
 
 
 import java.io.File;
+import org.openqa.selenium.io.FileHandler;
 import java.io.IOException;
-import java.sql.Date;
 import java.text.SimpleDateFormat;
 
 import org.codehaus.plexus.util.FileUtils;
@@ -19,6 +19,8 @@ import com.aventstack.extentreports.markuputils.Markup;
 import com.aventstack.extentreports.markuputils.MarkupHelper;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
+import java.util.Date;
+import java.util.logging.FileHandler;
 
 public class ExtentReporter extends DriverSetup
 {
@@ -80,13 +82,13 @@ public class ExtentReporter extends DriverSetup
  }
 
  public static String GetScreenshot(String ScreenshotName) throws IOException
- {
-	 String dateName=new SimpleDateFormat("yyyyMMddhhmmss").format(new Date(0));
+ {	 
+	 String dateName = new SimpleDateFormat("ddMMyyyyhhmmss").format(new Date()); 	
 	 TakesScreenshot ts=(TakesScreenshot)DriverSetup.getDriver();
 	 File Source=ts.getScreenshotAs(OutputType.FILE);
-	 String destination=System.getProperty("user.dir")+"/FailureScreeshot/"+ScreenshotName+dateName+".png";
+	 String destination=System.getProperty("user.dir")+"/FailureScreenshot/"+ScreenshotName+dateName+".png";
 	 File finalDestination=new File(destination);
-	 FileUtils.copyFile(Source, finalDestination); 
+	 FileHandler.copy(Source, finalDestination);//..copyFile(Source, finalDestination); 
 	 return destination; 
 	 
  }

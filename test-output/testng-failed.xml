@@ -3,14 +3,13 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="TestCases.WalletHubTC">
+      <class name="TestCases.FacebookTest">
         <methods>
-          <include name="Setup"/>
-          <include name="WalletHub"/>
-          <include name="EndTest"/>
           <include name="TearDown"/>
+          <include name="PostFacebook"/>
+          <include name="Setup"/>
         </methods>
-      </class> <!-- TestCases.WalletHubTC -->
+      </class> <!-- TestCases.FacebookTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

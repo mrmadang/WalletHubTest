@@ -20,7 +20,7 @@ public class WalletHubTC extends BaseSetup
 //	public DriverSetup DriverSetup;
 //	public Properties prop;
 	WalletPage wPAge;
-//	
+	
 	@BeforeTest
 	public void Setup()
 	{
@@ -30,35 +30,17 @@ public class WalletHubTC extends BaseSetup
 		Webdriver.manage().timeouts().pageLoadTimeout(40, TimeUnit.SECONDS);
 		Webdriver.manage().timeouts().setScriptTimeout(40, TimeUnit.SECONDS);
 		SetExtent();
-		wPAge=new WalletPage();
+	
 		
 	}
 	@Test
-	public void WalletHub() throws InterruptedException
+	public void WalletHubT() throws InterruptedException
 	{
+		wPAge=new WalletPage();
+		Test=Extent.createTest("WalletHubT");
 		wPAge.ClickSignUpButton();
 		
-//		login=new FacebookLoginPage();	
-//		Test=Extent.createTest("PostFacebook");
-//		login.Login(prop.getProperty("username"), prop.getProperty("password"));	
-//		login.PostInFacebook("Testing Purpose Only"+Keys.ENTER);	
-	//}
+
 	}
 	
-	@AfterTest
-	public void EndTest()
-	{		
-		EndReport();
-		if(Webdriver!=null)
-		{
-		Webdriver.quit();
-		}
-		//Webdriver.manage().timeouts().setScriptTimeout(40, TimeUnit.SECONDS);
-	}
-	
-	@AfterMethod
-	public void TearDown(ITestResult Result)
-	{
-		TearDownTest(Result);
-	}
 }
