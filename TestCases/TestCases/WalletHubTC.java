@@ -30,16 +30,31 @@ public class WalletHubTC extends BaseSetup
 		Webdriver.manage().timeouts().pageLoadTimeout(40, TimeUnit.SECONDS);
 		Webdriver.manage().timeouts().setScriptTimeout(40, TimeUnit.SECONDS);
 		SetExtent();
-	
+		wPAge=new WalletPage();
 		
 	}
 	@Test
-	public void WalletHubT() throws InterruptedException
+	public void WalletHubSignUp() throws InterruptedException
 	{
-		wPAge=new WalletPage();
-		Test=Extent.createTest("WalletHubT");
+		Test=Extent.createTest("WalletHubSignUp");
 		wPAge.ClickSignUpButton();
 		
+		wPAge.SignUp("FName", "LName", "FName_LName@mailinator.com","Password0!", "TestAddress", "25251", "phNumber");
+		
+			
+
+	}
+	
+	@Test
+	public void WalletHubReview() throws InterruptedException
+	{
+		Test=Extent.createTest("WalletHubReview");
+		//wPAge.ClickSignUpButton();
+		
+		wPAge.SignIn("userName", "PAssword");
+		Webdriver.get("https://wallethub.com/profile/test-insurance-company-13732055i");
+		wPAge.WriteReview();
+			
 
 	}
 	
